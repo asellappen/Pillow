@@ -33,8 +33,9 @@ before_install:
           fi
 install:
         - travis_retry pip install tox
-
 script:
         - .ci/build.sh
         - .ci/install.sh
         - .ci/test.sh
+        - travis_retry tox
+        - coverage run conftest.py
