@@ -17,25 +17,25 @@ sudo: false
 dist: bionic
 matrix:
     include:
+        - python: 3.7
+          sudo: true
         - python: 3.8
-          env: TOXENV=py38
+          sudo: true
+        - python: 3.7
           sudo: true
           arch : ppc64le
-before_install:
+        - python: 3.8
+          sudo: true
+          arch : ppc64le
+install:
         - pip install hypothesis
         - pip install codecov
         - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then
              pip install PIL;
              pip install image;
-             echo "Running before install  ppc64le";
-          else
-             echo "skipped  before install  amd64";
           fi
-install:
-        - travis_retry pip install tox
+
 script:
         - .ci/build.sh
         - .ci/install.sh
         - .ci/test.sh
-        - travis_retry tox
-        - coverage run conftest.py
