@@ -36,6 +36,7 @@ install:
           fi
 
 script:
-        - .ci/build.sh
+
         - .ci/install.sh
+        - .ci/build.sh
         - .ci/test.sh
