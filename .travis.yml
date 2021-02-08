@@ -17,6 +17,8 @@ sudo: false
 dist: focal
 matrix:
     include:
+        - python: pypy-3.6
+          sudo: true
         - python: 3.7
           sudo: true
         - python: 3.8
