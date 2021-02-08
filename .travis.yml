@@ -14,11 +14,9 @@
 language: python
 sudo: false
 
-dist: bionic
+dist: focal
 matrix:
     include:
-        - python: pypy-3.7
-          sudo: true
         - python: 3.8
           sudo: true
           arch : ppc64le
