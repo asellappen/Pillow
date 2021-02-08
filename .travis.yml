@@ -17,20 +17,15 @@ sudo: false
 dist: bionic
 matrix:
     include:
-        - python: 3.7
+		- python: pypy-3.7
           sudo: true
-        - python: 3.8
-          sudo: true
-        - python: 3.7
-          sudo: true
-          arch : ppc64le
         - python: 3.8
           sudo: true
           arch : ppc64le
 install:
         - pip install hypothesis
         - pip install codecov
-        - pip install sphinx-issues sphinx-removed-in sphinx-rtd-theme
+        - pip install sphinx-issues sphinx-removed-in sphinx-rtd-theme olefile
         - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then
              pip install PIL;
              pip install image;
